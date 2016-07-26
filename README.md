@@ -1,6 +1,6 @@
 Klasa **CdrTest** zawiera metode main która wrzuca CDRa do 
 ```
-	84 Connection connection = OracleJDBC.OracleJDBC.getConnection(OracleJDBC.ARIEL);
+84 Connection connection = OracleJDBC.OracleJDBC.getConnection(OracleJDBC.ARIEL);
 ```
 
 CDR jest tworzony sztucznie w ten sposób:
