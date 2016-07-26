@@ -55,24 +55,8 @@ public class CdrTest {
 
 		Connection connection = OracleJDBC.OracleJDBC.getConnection(OracleJDBC.ARIEL);
 
-		//		System.setProperty("-Doracle.jdbc.Trace", "true");
-		//		System.setProperty("-Doracle.jdbc.level", "ALL");
-
-		// enable logging programatically
-
-		//		javax.management.MBeanServer mbs = java.lang.management.ManagementFactory.getPlatformMBeanServer();
-		//		String loader = Thread.currentThread().getContextClassLoader().toString().replaceAll("[,=:\"]+", "");
-		//		javax.management.ObjectName name = new javax.management.ObjectName("com.oracle.jdbc:type=diagnosability,name=" + loader);
-		//		mbs.setAttribute(name, new javax.management.Attribute("LoggingEnabled", true));
-
-		//		System.out.println("LoggingEnabled = " + mbs.getAttribute(name, "LoggingEnabled"));
-
 		Object[] obj = c.createObjectTbl(e, 2);
-
-		Object[] o = new Object[43];
-		for (Object object : o) {
-			System.out.println("entry " + object);
-		}
+	
 		enqueue(obj, connection);
 	}
 
