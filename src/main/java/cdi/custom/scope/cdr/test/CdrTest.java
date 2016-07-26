@@ -62,9 +62,7 @@ java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
 ====================
 */
 
-
 public class CdrTest {
-	
 
 	public static void main(String[] args) throws SQLException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException,
 		MBeanException, ReflectionException, InvalidAttributeValueException, FileNotFoundException {
@@ -85,15 +83,19 @@ public class CdrTest {
 		e.setCosts("234");
 		e.setAccount(1);
 
-		Connection connection = OracleJDBC.OracleJDBC.getConnection(OracleJDBC.ARIEL);
+		Connection connection = OracleJDBC.OracleJDBC.getConnection(OracleJDBC.CALYPSO);
 
 		Object[] obj = c.createObjectTbl(e, 2);
 
 		//		System.setProperty("-Doracle.jdbc.Trace", "true");
 		//		System.setProperty("-Doracle.jdbc.level", "ALL");
 
-	
-		enqueue(obj, connection);
+		try {
+			enqueue(obj, connection);
+		} finally {
+			System.out.println("Closing connection");
+			connection.close();
+		}
 	}
 
 	@SuppressWarnings("deprecation")
@@ -146,6 +148,8 @@ public class CdrTest {
 			messageProperties.setRecipientList(recipients);
 			messageProperties.setCorrelation("CDRS");
 			messageProperties.setExceptionQueue("EXCEPTION_QUEUE");
+			messageProperties.setExpiration(0);
+			messageProperties.setPriority(1);
 
 			// Set all created props to message
 			AQMessage message =
