@@ -42,7 +42,7 @@ oracle.jdbc.level=SEVERE
 oracle.jdbc.aq.level=ALL
 oracle.jdbc.handlers=java.util.logging.FileHandler
 java.util.logging.FileHandler.level=FINE
-java.util.logging.FileHandler.pattern=jdbc.log -->output file 
+java.util.logging.FileHandler.pattern=jdbc.log // output file 
 java.util.logging.FileHandler.count=1
 java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
 ```
