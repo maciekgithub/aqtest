@@ -21,11 +21,11 @@ Trzeba rozwiązać sobie zależnośći w **pom.xml** - dodając ojdbc6_g.jar w c
 
 **Ustawienie logowania OJDBC programistycznie:**
 ```
-		javax.management.MBeanServer mbs = java.lang.management.ManagementFactory.getPlatformMBeanServer();
-		String loader = Thread.currentThread().getContextClassLoader().toString().replaceAll("[,=:\"]+", "");
-		javax.management.ObjectName name = new javax.management.ObjectName("com.oracle.jdbc:type=diagnosability,name=" + loader);
-		mbs.setAttribute(name, new javax.management.Attribute("LoggingEnabled", true));
-		System.out.println("LoggingEnabled = " + mbs.getAttribute(name, "LoggingEnabled"));
+javax.management.MBeanServer mbs = java.lang.management.ManagementFactory.getPlatformMBeanServer();
+String loader = Thread.currentThread().getContextClassLoader().toString().replaceAll("[,=:\"]+", "");
+javax.management.ObjectName name = new javax.management.ObjectName("com.oracle.jdbc:type=diagnosability,name=" + loader);
+mbs.setAttribute(name, new javax.management.Attribute("LoggingEnabled", true));
+System.out.println("LoggingEnabled = " + mbs.getAttribute(name, "LoggingEnabled"));
 ```
 
 **Ustawienie logowania OJDBC konfiguracyjnie:**
