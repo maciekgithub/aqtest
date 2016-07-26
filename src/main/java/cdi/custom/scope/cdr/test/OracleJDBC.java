@@ -19,8 +19,8 @@ public enum OracleJDBC {
 	public final static String CALYPSO = "calypso";
 
 	private enum Destination {
-		MARGARET("margaret", "jdbc:oracle:thin:@ariel:1521:oberon2", "cdrs", "cdrsq12"),
-		ARIEL("ariel", "jdbc:oracle:thin:@margaret:1521:margaret", "cdrs", "cdrsq12"),
+		MARGARET("margaret", "jdbc:oracle:thin:@margaret:1521:margaret", "cdrs", "cdrsq12"),
+		ARIEL("ariel", "jdbc:oracle:thin:@ariel:1521:oberon2", "cdrs", "cdrsq12"),
 		CALYPSO("calypso", "jdbc:oracle:thin:@calypso:1521:calypso", "cdrs", "cdrsq12");
 
 		private String name;

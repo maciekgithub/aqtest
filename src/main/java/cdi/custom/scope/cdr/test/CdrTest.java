@@ -31,6 +31,34 @@ import pl.orange.isep.model.event.cdr.CDRVoucherBalanceRechargeEvent;
 /**
 @author mkamin
 */
+
+// enable logging programatically
+
+//		javax.management.MBeanServer mbs = java.lang.management.ManagementFactory.getPlatformMBeanServer();
+//		String loader = Thread.currentThread().getContextClassLoader().toString().replaceAll("[,=:\"]+", "");
+//		javax.management.ObjectName name = new javax.management.ObjectName("com.oracle.jdbc:type=diagnosability,name=" + loader);
+//		mbs.setAttribute(name, new javax.management.Attribute("LoggingEnabled", true));
+
+//		System.out.println("LoggingEnabled = " + mbs.getAttribute(name, "LoggingEnabled"));
+
+//OJDBC logging
+
+//uruchomienie z wiersza polecen:
+//java -Djava.util.logging.config.file=/home/mkamin/Desktop/myConfig.properties -Doracle.jdbc.Trace=true -cp .:/home/mkamin/.m2/repository/pl/orange/isep/isep-model/0.1-SNAPSHOT/isep-model-0.1-SNAPSHOT.jar:/home/mkamin/git/isep2/isep-forked/isep/isep-api/target/isep-api-0.1-SNAPSHOT.jar:/home/mkamin/.m2/repository/oracle/ojdbc/ojdbc_g/1.0/ojdbc_g-1.0.jar cdi.custom.scope.cdr.test.CdrTest
+
+//====================
+//vim myConfig.properties
+//.level=SEVERE
+//oracle.jdbc.level=SEVERE
+//oracle.jdbc.aq.level=ALL
+//oracle.jdbc.handlers=java.util.logging.FileHandler
+//java.util.logging.FileHandler.level=FINE
+//java.util.logging.FileHandler.pattern=jdbc1.log
+//java.util.logging.FileHandler.count=1
+//java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
+//====================	
+
+
 public class CdrTest {
 	
 
@@ -56,6 +84,10 @@ public class CdrTest {
 		Connection connection = OracleJDBC.OracleJDBC.getConnection(OracleJDBC.ARIEL);
 
 		Object[] obj = c.createObjectTbl(e, 2);
+
+		//		System.setProperty("-Doracle.jdbc.Trace", "true");
+		//		System.setProperty("-Doracle.jdbc.level", "ALL");
+
 	
 		enqueue(obj, connection);
 	}

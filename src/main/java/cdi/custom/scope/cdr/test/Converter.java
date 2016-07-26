@@ -84,7 +84,7 @@ public class Converter {
 					cdr[20] = UNUSED_STRING; // RELOAD_BONUS
 					cdr[21] = UNUSED_INT; // RELOAD_BONUS_AMOUNT
 					cdr[22] = UNUSED_INT; // RELOAD_BONUS_LEFT
-					cdr[23] = new Timestamp(System.currentTimeMillis()); // LOAD_TIME
+					cdr[23] = "2015-06-06 12:11:11"; // LOAD_TIME
 					cdr[24] = (event instanceof CDRBalanceEvent) ? ((CDRBalanceEvent) event).getBalanceTypes() : UNUSED_STRING; // BALANCE_TYPES
 					cdr[25] = (event instanceof CDRBalanceEvent) ? ((CDRBalanceEvent) event).getBalances() : UNUSED_STRING; // BALANCES
 					cdr[26] = (event instanceof CDRBalanceEvent) ? ((CDRBalanceEvent) event).getCosts() : UNUSED_STRING; // COSTS
@@ -184,7 +184,7 @@ public class Converter {
 					cdr[1] = UNUSED_INT; // SCP_ID
 					cdr[2] = event.getSequenceNumber(); // SEQUENCE_NUMBER
 					cdr[3] = event.getCdrType(); // CDR_NUMBER
-					cdr[4] = new Timestamp(recordDate.getTime()); // RECORD_DATE
+					cdr[4] = "2015-06-06 12:11:11"; // RECORD_DATE
 					cdr[5] = event.getAccount(); // ACCT_ID
 					cdr[6] = UNUSED_INT; // ACCT_REF_ID
 					cdr[7] = UNUSED_INT; // ACS_CUST_ID
@@ -203,7 +203,7 @@ public class Converter {
 					cdr[20] = UNUSED_STRING; // RELOAD_BONUS
 					cdr[21] = UNUSED_INT; // RELOAD_BONUS_AMOUNT
 					cdr[22] = UNUSED_INT; // RELOAD_BONUS_LEFT
-					cdr[23] = new Timestamp(System.currentTimeMillis()); // LOAD_TIME
+					cdr[23] = "2015-06-06 12:11:11";
 					cdr[24] = (event instanceof CDRBalanceEvent) ? ((CDRBalanceEvent) event).getBalanceTypes() : UNUSED_STRING; // BALANCE_TYPES
 					cdr[25] = (event instanceof CDRBalanceEvent) ? ((CDRBalanceEvent) event).getBalances() : UNUSED_STRING; // BALANCES
 					cdr[26] = (event instanceof CDRBalanceEvent) ? ((CDRBalanceEvent) event).getCosts() : UNUSED_STRING; // COSTS
